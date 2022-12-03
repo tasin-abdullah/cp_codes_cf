@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define one ios_base::sync_with_stdio(0);
+#define two cin.tie(0);
+#define three cout.tie(0);
+typedef long long ll;
+typedef vector<int> vi;
+typedef set<int>   si;
+typedef pair<int, int>  ii;
+typedef map<int, int>  mi;
+ 
+void firiyedao()
+{
+    ll n; cin >> n;
+    ll i, a[100005] = {0};
+    ll mx = INT_MIN;
+    for(i=0; i<n; i++)
+    {
+        ll x; cin >> x;
+        a[x]++; 
+        mx = max(mx, x);
+    }
+    ll b[100005] = {0};
+    b[0] = 0;
+    b[1] = a[1];
+    for(i=2; i<=100000; i++)
+    {
+        b[i] = max(b[i-1], b[i-2]+(a[i]*i));
+    }
+    cout << b[mx] << endl; 
+}
+main ()
+{
+    one two three 
+    // int t; cin >> t;
+    // while(t--)
+    // {
+        firiyedao();
+    //}
+    return 0;
+}
